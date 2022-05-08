@@ -1,0 +1,58 @@
+<nz-card nzTitle="Reviews" [nzLoading]="isLoaded" [nzExtra]="extraTemplate">
+  <div class="m-t-20">
+    <nz-list
+      [nzDataSource]="reviewListData"
+      [nzRenderItem]="review"
+      [nzItemLayout]="'vertical'"
+      [nzPagination]="pagination"
+    >
+      <ng-template #review let-item>
+        <nz-list-item
+          class="d-block"
+          [nzContent]="item.review"
+          [nzActions]="[rating]"
+        >
+          <ng-template #rating>
+            <nz-rate [ngModel]="item.rating" nzDisabled></nz-rate>
+          </ng-template>
+          <nz-list-item-meta
+            [nzTitle]="reviewTitle"
+            [nzAvatar]="item.img"
+            [nzDescription]="item.date"
+          >
+            <ng-template #reviewTitle>
+              <a class="font-size-15" href="">{{ item.name }}</a>
+            </ng-template>
+          </nz-list-item-meta>
+        </nz-list-item>
+      </ng-template>
+      <ng-template #pagination>
+        <nz-pagination [nzPageIndex]="1" [nzTotal]="50"></nz-pagination>
+      </ng-template>
+    </nz-list>
+  </div>
+  <ng-template #extraTemplate>
+    <a
+      class="m-r-5 show-more"
+      nz-button
+      nzType="default"
+      nzShape="circle"
+      nz-tooltip
+      nzTooltipTitle="View More"
+    >
+      <i nz-icon nzType="down" nzTheme="outline"></i>
+    </a>
+    <!-- <a
+      class="m-r-5 show-more"
+      nz-button
+      nzType="default"
+      nzShape="circle"
+      nz-tooltip
+      nzTooltipTitle="Hidden"
+      (click)="i = 2"
+      *ngIf="i === skills.length"
+    >
+      <i nz-icon nzType="up" nzTheme="outline"></i>
+    </a> -->
+  </ng-template>
+</nz-card>

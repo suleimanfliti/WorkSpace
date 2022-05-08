@@ -1,0 +1,123 @@
+<nz-card nzTitle="Edit Education Details">
+  <div class="row">
+    <div class="col-sm-4 p-r-20">
+      <nz-form-item>
+        <nz-form-label><span>major</span></nz-form-label>
+        <nz-form-control>
+          <input type="text" formControlName="major" nz-input />
+        </nz-form-control>
+        <!-- <nz-form-explain
+          *ngIf="
+            edit_info.get('name').touched && edit_info.get('name').errors
+          "
+          >Please Enter your Username valid!</nz-form-explain > -->
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label><span>Activites</span></nz-form-label>
+        <nz-form-control>
+          <textarea
+            rows="4"
+            nz-input
+            [(ngModel)]="activities"
+            (input)="onChange()"
+            required
+          ></textarea>
+        </nz-form-control>
+      </nz-form-item>
+
+    </div>
+    <div class="col-sm-4 p-r-20">
+      <nz-form-item>
+        <nz-form-label><span>School</span></nz-form-label>
+        <nz-form-control>
+          <input type="text" formControlName="school" nz-input />
+        </nz-form-control>
+        <!-- <nz-form-explain
+          *ngIf="
+            edit_info.get('name').touched && edit_info.get('name').errors
+          "
+          >Please Enter your Username valid!</nz-form-explain > -->
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label><span>degree</span></nz-form-label>
+        <nz-form-control>
+          <input
+            type="number"
+            [min]="0"
+            [max]="100"
+            nz-input
+            placeholder=""
+            (input)="onChange()"
+            [(ngModel)]="degree"
+            required
+          />
+        </nz-form-control>
+        <!-- <nz-form-explain
+          *ngIf="
+            edit_info.get('email').touched && edit_info.get('email').errors
+          "
+          >Please Enter your Email valid!</nz-form-explain
+        > -->
+      </nz-form-item>
+   
+
+    </div>
+
+    <div class="col-sm-4 p-l-20">
+      <!-- <nz-form-item>
+      <nz-form-label><span>Country</span></nz-form-label>
+      <nz-form-control>
+        <input type="text" nz-input [(ngModel)]="country" required />
+      </nz-form-control>
+    </nz-form-item> -->
+    
+    <nz-form-item>
+      <nz-form-label><span>Start Date</span></nz-form-label>
+      <nz-form-control>
+        <nz-date-picker
+          [nzFormat]="dateFormat"
+          [(ngModel)]="start_date"
+          (ngModelChange)="onChange()"
+        ></nz-date-picker>
+      </nz-form-control>
+      <!-- <nz-form-explain
+        *ngIf="
+          edit_info.get('phone').touched && edit_info.get('phone').errors
+        "
+        >Please Enter your Phone valid!</nz-form-explain
+      > -->
+    </nz-form-item>
+      <nz-form-item>
+        <nz-form-label><span>End Date</span></nz-form-label>
+        <nz-form-control>
+          <nz-date-picker
+            [nzFormat]="dateFormat"
+            [(ngModel)]="end_date"
+            (ngModelChange)="onChange()"
+          ></nz-date-picker>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+  <div class="add m-t-10">
+    <button (click)="save()" nz-button nzType="primary" [disabled]="!isChanged">
+      <a [routerLink]="['/pages', 'profile']">Save</a>
+    </button>
+    <button
+      nz-button
+      nzType="primary"
+      nzDanger
+      [disabled]="!isChanged"
+      class="m-l-15"
+    >
+      <a [routerLink]="['/pages', 'profile']">Back</a>
+    </button>
+  </div>
+</nz-card>
+
+
+
+
+

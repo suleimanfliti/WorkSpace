@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-sm-6 m-auto">
+  </div>
+  <div class="col-sm-6 m-auto">
+    <nz-input-group class="m-t-15" [nzPrefix]="searchPrefix">
+      <input
+        type="text"
+        nz-input
+        style="width: 50%"
+        placeholder="Search Project"
+        [(ngModel)]="searchInput"
+        (input)="search()"
+      />
+    </nz-input-group>
+    <ng-template #searchPrefix>
+      <i class="opacity-04" nz-icon nzType="search"></i>
+    </ng-template>
+  </div>
+</div>
+
+<nz-tabset (nzSelectChange)="onChange()" class="page-header-tab">
+
+
+  <nz-tab nzTitle="My Projects">
+    <!-- <app-my-projects></app-my-projects> -->
+    <project-list [projects]="projects"></project-list>
+  </nz-tab>
+</nz-tabset>
+
+<app-create-project ></app-create-project>
+

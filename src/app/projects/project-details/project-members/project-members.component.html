@@ -1,0 +1,7 @@
+<nz-card>
+    <span class="text-dark  font-weight-semibold m-r-10 m-b-5">Members: </span>
+    <a class="m-r-5 m-b-5" *ngFor="let item of memberList">
+        <nz-avatar [nzSize]="30" [nzSrc]="item.avatar" nz-tooltip [nzTooltipTitle]="item.name">
+        </nz-avatar>
+    </a>
+</nz-card>

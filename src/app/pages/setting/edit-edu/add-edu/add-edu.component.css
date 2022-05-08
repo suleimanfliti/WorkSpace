@@ -1,0 +1,32 @@
+.add {
+  display: flex;
+  align-items: center;
+}
+
+
+nz-form-label {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+span {
+  font-size: 0.8rem !important;
+
+  /* color: black; */
+}
+input {
+  font: 1rem;
+}
+nz-form-label span {
+  color: #4cb0ba;
+  font-weight: 700 !important;
+}
+input {
+  font-size: 1rem !important;
+}
+.ant-input-group-addon {
+  background-color: #fdebee;
+}
+.spinner {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}

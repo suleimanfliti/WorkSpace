@@ -1,0 +1,17 @@
+<div *ngIf="!isLoaded && user && profile">
+  <div class="row">
+    <div class="col-xl-4 col-lg-5 col-sm-6 picture-box">
+      <app-user-box></app-user-box>
+    </div>
+    <app-user-skills></app-user-skills>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-md-7">
+      <app-user-projects></app-user-projects>
+    </div>
+    <div class="col-md-5">
+      <app-projects-chart></app-projects-chart>
+    </div>
+  </div>
+</div>

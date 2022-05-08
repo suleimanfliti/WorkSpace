@@ -1,0 +1,81 @@
+@import url("./assets/lib/hljs/styles/atom-one-light.css");
+@import url("../node_modules/ng-zorro-antd/src/ng-zorro-antd.min.css");
+@import url("../node_modules/@fortawesome/fontawesome-free/css/all.min.css");
+@import "./assets/scss/app.scss";
+
+.w-30 {
+  width: 25%;
+}
+.logo-box {
+  width: 20%;
+}
+.header-form {
+  color: #54c4cf;
+  text-align: center;
+  margin-bottom: 14px;
+}
+input.ng-invalid.ng-touched,
+input.ng-touched.ng-invalid:hover {
+  border: 1px solid #ed3a52;
+  // border-left: 5px solid #ed3a52;
+}
+
+input.ant-input.ng-tns-c165-0.ng-dirty.ng-valid.ng-touched {
+  background-color: white !important;
+}
+// input#phone.ant-input {
+//   width: 100%;
+// }
+
+// input.ng-touched.ng-valid,
+// input.ng-touched.ng-valid:hover {
+//   border: 1px solid #54c4cf;
+//   border-left: 10px solid #54c4cf;
+// }
+.phone-select {
+  width: 70px;
+}
+.main-content {
+  background-color: white;
+}
+.link-edit {
+  background-color: $color-primary-1;
+}
+.link-edit:hover {
+  background-color: $color-primary-3;
+}
+.icon-edit {
+  color: white;
+}
+p {
+  color: #53535f;
+}
+
+.list-button-add {
+  background-color: #54c4cf;
+  color: white;
+  transition: all 0.5s;
+}
+.list-button-add::before,
+.list-button-add::after {
+  background-color: #54c4cf;
+}
+.list-button-add:active,
+.list-button-add:hover {
+  background-color: #aae2e7;
+  color: white;
+}
+.list-button-edit {
+  background-color: #ed3a52;
+  color: white;
+  transition: all 0.5s;
+}
+.list-button-edit::before,
+.list-button-edit::after {
+  background-color: #ed3a52;
+}
+.list-button-edit:active,
+.list-button-edit:hover {
+  color: white;
+  background-color: #ffb4c0;
+}

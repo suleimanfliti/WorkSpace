@@ -1,0 +1,50 @@
+<nz-card>
+    <h5 class="m-b-0">Chart</h5>
+    <div class="m-v-60 text-center" style="height: 100px">
+      <canvas
+        ngChartjs
+        [data]="customersChartData"
+        [labels]="customersChartLabels"
+        [chartType]="customersChartType"
+        [colors]="customersChartColors"
+        [options]="customersChartOptions"
+        [legend]="false"
+      >
+      </canvas>
+    </div>
+    <div class="row border-top p-t-25">
+      <div class="col-4">
+        <div class="d-flex justify-content-center">
+          <div class="media align-items-center">
+            <nz-badge nzStatus="default" [nzColor]="cyan"></nz-badge>
+            <div class="m-l-5">
+              <h4 class="m-b-0">350</h4>
+              <p class="m-b-0 muted">Ready</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="d-flex justify-content-center">
+          <div class="media align-items-center">
+            <nz-badge nzStatus="default" [nzColor]="purple"></nz-badge>
+            <div class="m-l-5">
+              <h4 class="m-b-0">450</h4>
+              <p class="m-b-0 muted">In progress</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="d-flex justify-content-center">
+          <div class="media align-items-center">
+            <nz-badge nzStatus="default" [nzColor]="gold"></nz-badge>
+            <div class="m-l-5">
+              <h4 class="m-b-0">100</h4>
+              <p class="m-b-0 muted">Behind</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nz-card>

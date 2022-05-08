@@ -1,0 +1,76 @@
+<nz-card
+  nzTitle="Educations List"
+  [nzLoading]="isLoaded"
+  [nzExtra]="extraTemplate"
+>
+  <div class="m-t-20" >
+    <div class="media" *ngFor="let item of eduListData">
+      <div >
+        <div class="media-body m-l-20">
+          <h6 class="m-b-0">
+            {{ item.school }}<span *ngIf="item.school">-</span>
+            <span>{{ item.major }}</span>
+            ({{ item.degree }})
+          </h6>
+          <span class="font-size-13 text-gray">{{ item.start_date }} -</span>
+          <span class="font-size-13 text-gray">{{ item.end_date }}</span>
+          <ul class="m-t-15">
+            <li>{{ item.activities }}</li>
+          </ul>
+        </div>
+      </div>
+      <!-- <nz-avatar class="shadow-sm" [nzSrc]="item.img"></nz-avatar> -->
+    </div>
+  </div>
+  <div style="float: right" class="m-t-10">
+    <a
+      class="m-r-10 list-button-edit"
+      nz-button
+      nzType="default"
+      nzShape="circle"
+      nz-tooltip
+      nzTooltipTitle="Edit"
+      routerLink="/pages/edit-edu"
+      *ngIf="educations[0]"
+    >
+      <i nz-icon nzType="edit" theme="outline"></i>
+    </a>
+    <a
+      class="m-r-5 list-button-add"
+      nz-button
+      nzType="default"
+      nzShape="circle"
+      nz-tooltip
+      nzTooltipTitle="Add"
+      routerLink="/pages/add-edu"
+    >
+      <i nz-icon nzType="plus" theme="outline"></i>
+    </a>
+  </div>
+  <ng-template #extraTemplate>
+    <a
+      class="m-r-5 show-more"
+      nz-button
+      nzType="default"
+      nzShape="circle"
+      nz-tooltip
+      nzTooltipTitle="View More"
+      (click)="i = educations.length"
+      *ngIf="i < educations.length"
+    >
+      <i nz-icon nzType="down" nzTheme="outline"></i>
+    </a>
+    <a
+      class="m-r-5 show-more"
+      nz-button
+      nzType="default"
+      nzShape="circle"
+      nz-tooltip
+      nzTooltipTitle="Close"
+      (click)="i = 1"
+      *ngIf="i === educations.length"
+    >
+      <i nz-icon nzType="up" nzTheme="outline"></i>
+    </a>
+  </ng-template>
+</nz-card>

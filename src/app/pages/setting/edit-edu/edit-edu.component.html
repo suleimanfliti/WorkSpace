@@ -1,0 +1,5 @@
+<div class="row" *ngIf="educations">
+  <div class="col-md-6" *ngFor="let edu of educations">
+    <app-add-edu [edu]="edu"></app-add-edu>
+  </div>
+</div>

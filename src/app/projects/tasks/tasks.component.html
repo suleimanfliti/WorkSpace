@@ -1,0 +1,81 @@
+<nz-collapse nzGhost class="m-t-100">
+    <nz-collapse-panel *ngFor="let panel of Inprogress_panel" [nzHeader]="panel.title" [nzActive]="panel.active"
+        class="collapse">
+
+        <app-task-body></app-task-body>
+
+        <div *ngIf="panel.childPanel && panel.childPanel.length > 0">
+            <nz-collapse>
+                <nz-collapse-panel *ngFor="let childPanel of panel.childPanel" [nzHeader]="childPanel.title"
+                    [nzActive]="childPanel.active">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum explicabo, ipsa accusantium
+                        provident minus mollitia neque officia ratione, nisi ducimus natus nobis omnis? A, voluptatibus
+                        sunt pariatur nihil nisi voluptates?
+                    </p>
+                </nz-collapse-panel>
+            </nz-collapse>
+        </div>
+
+        <div>
+            <app-create-task></app-create-task>
+        </div>
+    </nz-collapse-panel>
+
+</nz-collapse>
+
+
+<nz-collapse nzGhost style="margin-top:100px ;">
+    <nz-collapse-panel *ngFor="let panel of Noprogress_panel" [nzHeader]="panel.title" [nzActive]="panel.active"
+        class="collapse">
+
+        <!-- nopgress-tasks -->
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum explicabo, ipsa accusantium
+            provident minus mollitia neque officia ratione, nisi ducimus natus nobis omnis? A, voluptatibus
+            sunt pariatur nihil nisi voluptates?
+        </p>
+
+        <div *ngIf="panel.childPanel && panel.childPanel.length > 0">
+            <nz-collapse>
+                <nz-collapse-panel *ngFor="let childPanel of panel.childPanel" [nzHeader]="childPanel.title"
+                    [nzActive]="childPanel.active">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum explicabo, ipsa accusantium
+                        provident minus mollitia neque officia ratione, nisi ducimus natus nobis omnis? A, voluptatibus
+                        sunt pariatur nihil nisi voluptates?
+                    </p>
+                </nz-collapse-panel>
+            </nz-collapse>
+        </div>
+    </nz-collapse-panel>
+
+</nz-collapse>
+
+
+<nz-collapse nzGhost style="margin-top:100px ;">
+    <nz-collapse-panel *ngFor="let panel of Completed_panel" [nzHeader]="panel.title" [nzActive]="panel.active"
+        class="collapse">
+
+        <!-- Completed-tasks -->
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum explicabo, ipsa accusantium
+            provident minus mollitia neque officia ratione, nisi ducimus natus nobis omnis? A, voluptatibus
+            sunt pariatur nihil nisi voluptates?
+        </p>
+
+        <div *ngIf="panel.childPanel && panel.childPanel.length > 0">
+            <nz-collapse>
+                <nz-collapse-panel *ngFor="let childPanel of panel.childPanel" [nzHeader]="childPanel.title"
+                    [nzActive]="childPanel.active">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum explicabo, ipsa accusantium
+                        provident minus mollitia neque officia ratione, nisi ducimus natus nobis omnis? A, voluptatibus
+                        sunt pariatur nihil nisi voluptates?
+                    </p>
+                </nz-collapse-panel>
+            </nz-collapse>
+        </div>
+    </nz-collapse-panel>
+
+</nz-collapse>

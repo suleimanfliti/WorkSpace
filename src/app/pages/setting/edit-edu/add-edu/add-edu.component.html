@@ -1,0 +1,121 @@
+<nz-card nzTitle="Add Education">
+  <form
+    nz-form
+    [formGroup]="add_edu"
+    nzLayout="vertical"
+    class="login-form"
+    (ngSubmit)="submitForm()"
+  >
+    <div class="row">
+      <div class="col-md-6 p-r-20">
+        <nz-form-item>
+          <nz-form-label nzRequired nzFor="school">School</nz-form-label>
+          <nz-form-control>
+            <input type="text" formControlName="school" nz-input />
+          </nz-form-control>
+          <nz-form-explain
+            *ngIf="
+              add_edu.get('school').touched && add_edu.get('school').errors
+            "
+            >Please Enter your school valid!</nz-form-explain
+          >
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label nzRequired nzFor="start_date"
+            >Start Date</nz-form-label
+          >
+          <nz-form-control>
+            <nz-date-picker
+              style="width: 100%"
+              [nzFormat]="dateFormat"
+              formControlName="start_date"
+            ></nz-date-picker>
+          </nz-form-control>
+          <nz-form-explain
+            *ngIf="
+              add_edu.get('start_date').touched &&
+              add_edu.get('start_date').errors
+            "
+            >Please Enter your start date!</nz-form-explain
+          >
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label nzRequired nzFor="degree">Degree</nz-form-label>
+
+          <nz-form-control>
+            <input type="number" formControlName="degree" nz-input />
+          </nz-form-control>
+          <nz-form-explain
+            *ngIf="
+              add_edu.get('degree').touched && add_edu.get('degree').errors
+            "
+            >Please Enter your degree between 0 to 100.!</nz-form-explain
+          >
+        </nz-form-item>
+      </div>
+      <div class="col-md-6 p-r-20">
+        <nz-form-item>
+          <nz-form-label nzRequired nzFor="major">Major</nz-form-label>
+          <nz-form-control>
+            <input type="text" formControlName="major" nz-input />
+          </nz-form-control>
+          <nz-form-explain
+            *ngIf="add_edu.get('major').touched && add_edu.get('major').errors"
+            >Please Enter your Major!</nz-form-explain
+          >
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label nzFor="end_date">End Date</nz-form-label>
+          <nz-form-control>
+            <nz-date-picker
+              style="width: 100%"
+              [nzFormat]="dateFormat"
+              formControlName="end_date"
+            ></nz-date-picker>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label nzFor="activities">Activites</nz-form-label>
+          <nz-form-control>
+            <textarea
+              rows="4"
+              id="activities"
+              formControlName="activities"
+              nz-input
+              required
+            ></textarea>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center justify-content-end">
+        <button nz-button nzDanger class="m-l-15 list-button-edit">
+          <a [routerLink]="['/pages', 'profile']">Back</a>
+        </button>
+        <button
+          class="m-l-15 list-button-add"
+          type="submit"
+          nz-button
+          nzType="primary"
+          [disabled]="!add_edu.valid && isChange"
+        >
+          Save
+        </button>
+
+        <div *ngIf="isLoaded && !error">
+          <ng-template #indicatorTemplate
+            ><i nz-icon nzType="loading" class="spinner m-l-15"></i
+          ></ng-template>
+          <nz-spin nzSimple [nzIndicator]="indicatorTemplate"></nz-spin>
+        </div>
+      </div>
+    </div>
+    <nz-alert
+      *ngIf="error && !isLoaded"
+      nzType="error"
+      [nzMessage]="'error'"
+      style="width: 100%"
+    ></nz-alert>
+  </form>
+</nz-card>

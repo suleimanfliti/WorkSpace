@@ -1,0 +1,49 @@
+<div class="well primary" *ngFor="let task of taskbody  ">
+    <div class="task-body">
+        <div>
+            <a class="text-dark font-size-20" nz-dropdown [nzTrigger]="'click'" [nzPlacement]="'bottomRight'"
+                [nzDropdownMenu]="latestUploadDropDown">
+                <i nz-icon nzType="check-circle" [nzTheme]="'twotone'" [nzTwotoneColor]="'#e6b624'"></i>
+            </a>
+            <nz-dropdown-menu #latestUploadDropDown="nzDropdownMenu">
+                <ul nz-menu>
+                    <li nz-menu-item>
+                        <i nz-icon nzType="check-circle" [nzTheme]="'twotone'" [nzTwotoneColor]="'#e6b624'"></i>
+                        <span class="m-l-5">In progress</span>
+                    </li>
+                    <li nz-menu-item>
+                        <i nz-icon nzType="check-circle" [nzTheme]="'twotone'" [nzTwotoneColor]="'#b0bccd'"></i>
+                        <span class="m-l-5">No progress</span>
+                    </li>
+                    <li nz-menu-item>
+                        <i nz-icon nzType="check-circle" [nzTheme]="'twotone'" [nzTwotoneColor]="'#52c41a'"></i>
+                        <span class="m-l-5">Completed</span>
+                    </li>
+                </ul>
+            </nz-dropdown-menu>
+
+            <a class="m-l-10" (click)="toggleShow()">{{task.title}} {{task.hours}}
+                <label class="lab m-l-5">deadline {{task.deadline}}</label>
+            </a>
+           <a class="m-l-20">
+            <a class=" m-b-5 " *ngFor="let item of memberList">
+                <nz-avatar class="avatar" [nzSize]="30" [nzSrc]="item.avatar" nz-tooltip [nzTooltipTitle]="item.name">
+                </nz-avatar>
+            </a>
+        </a>
+            <nz-tag [nzColor]="'blue'" class="s-10 m-l-5">{{task.status}}</nz-tag>
+
+        </div>
+    </div>
+
+    <div *ngIf="isShown" class="row container-fluid" id="divshow">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <app-task-details> </app-task-details>
+                <hr>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+<nz-card *ngFor="let project of projectList" >
+    <div class="d-flex justify-content-between">
+        <div class="media align-items-center">
+            <nz-avatar nzShape="square" nzSrc="assets/images/others/thumb-3.jpg"></nz-avatar>
+            <div class="m-l-10">
+                <h4 class="m-b-0">{{project.title}}</h4>
+            </div>
+        </div>
+        <div class="d-md-flex align-items-center d-none">
+            <div class="media align-items-center m-r-40 m-v-5">
+                <div class="font-size-27">
+                    <i class="text-primary" nz-icon nzType="profile" theme="outline"></i>
+                </div>
+                <div class="d-flex align-items-center m-l-10">
+                    <h2 class="m-b-0 m-r-5">78</h2>
+                    <span class="text-gray">Tasks</span>
+                </div>
+            </div>
+     
+            <div class="media align-items-center m-v-5">
+                <div class="font-size-27">
+                    <i class="text-danger" nz-icon nzType="team" theme="outline"></i>
+                </div>
+                <div class="d-flex align-items-center m-r-15">
+                    <h2 class="m-b-0 m-r-5">39</h2>
+                    <span class="text-gray">Members</span>
+                </div>
+            </div>
+            <div class="m-r-10">
+                <nz-tag  [nzColor]="'blue'">{{project.status}}</nz-tag>
+            </div>
+        </div>
+     
+  
+    </div>
+
+    <div class="m-t-40  ">
+ 
+        <h6>Description:</h6>
+        <p>{{project.describtion}}</p>
+
+        <div class="button-edit pull-right-sm">
+            <a
+              nz-button
+              nzType="default"
+              nzShape="circle"
+              nz-tooltip
+              nzTooltipTitle="Edit"
+              routerLink="/projects/edit-project"
+              class="list-button-edit"
+            >
+              <i nz-icon nzType="edit" class="icon-edit" theme="outline"></i>
+            </a>
+          </div>
+
+        <div class="pull-right-sm m-r-20">
+            <button nz-button nzType="primary">
+                <a [routerLink]="['/projects', 'tasks']">Tasks</a>
+            </button>
+            
+        </div>
+   
+ 
+    </div>
+
+</nz-card>
+

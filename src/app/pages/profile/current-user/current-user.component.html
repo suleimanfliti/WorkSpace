@@ -1,0 +1,171 @@
+<div class="cover-container">
+  <div class="img-cover-box">
+    <img
+      class="img-cover"
+      src="../../../../assets/images/others/cover-1.jpg"
+      alt=""
+    />
+  </div>
+  <div class="img-profile-box">
+    <img class="img-profile" [src]="profile.picture" alt="profile" />
+  </div>
+</div>
+<div class="name-header" *ngIf="user.id">
+  <h2>{{ user.name }}</h2>
+</div>
+<!-- <p class="text-opacity font-size-13">@Marshallnich</p> -->
+<!-- <p class="text-dark m-b-20">Frontend Developer, UI/UX Designer</p> -->
+<div>
+  <nz-card *ngIf="user.id && profile.id">
+    <div class="row">
+      <div class="col-md-6">
+        <div
+          class="
+            d-flex
+            info-box
+            align-items-center
+            flex-warp
+            justify-content-center
+            flex-column
+          "
+        >
+          <div class="m-b-15 m-r-20 ">
+            <p class="m-b-5">Rating</p>
+            <nz-rate [ngModel]="3" [disabled]="true"></nz-rate>
+          </div>
+          <div class="hours-box">
+            <p class="m-b-5">Hour Weekly</p>
+            <div class="d-flex justify-content-center">
+              <p class="hours">{{ profile.weekly_hours }}</p>
+              <nz-avatar
+                [nzSize]="35"
+                nzIcon="hourglass"
+                class="ant-avatar-gold m-l-10"
+              ></nz-avatar>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-box">
+          <h6 class="contact-title">contact</h6>
+          <p class="contact-text">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae
+            voluptatum, sunt rem ea corrupti minima quae quia accusamus eveniet
+            excepturi.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-12">
+            <div
+              class="
+                d-flex
+                flex-warp flex-column
+                align-items-start
+                font-size-16
+                info-box
+              "
+            >
+              <div class="m-b-10 flex-fill align-items-center">
+                <div class="d-flex">
+                  <i
+                    class="m-r-5 m-t-5 text-primary"
+                    nz-icon
+                    nzType="phone"
+                    theme="outline"
+                  ></i>
+                  <p class="text-dark m-r-5">Phone :</p>
+                  <p>
+                    {{ user.phone }}
+                  </p>
+                </div>
+              </div>
+              <div class="m-b-10 flex-fill align-items-center">
+                <div class="d-flex">
+                  <i
+                    class="m-r-5 m-t-5 text-primary"
+                    nz-icon
+                    nzType="compass"
+                    theme="outline"
+                  ></i>
+                  <p class="text-dark m-r-5">Place :</p>
+                  <p>{{ profile.city }}</p>
+                </div>
+              </div>
+
+              <div class="m-b-10 flex-fill align-items-center">
+                <div class="d-flex">
+                  <i
+                    class="m-r-5 m-t-5 text-primary"
+                    nz-icon
+                    nzType="mail"
+                    nzTheme="outline"
+                  ></i>
+                  <p class="text-dark m-r-5">Email:</p>
+                  <p>{{ user.email }}</p>
+                </div>
+              </div>
+
+              <div class="m-b-10 flex-fill align-items-center">
+                <div class="d-flex">
+                  <i
+                    class="m-r-5 m-t-5 text-primary"
+                    nz-icon
+                    nzType="team"
+                    nzTheme="outline"
+                  ></i>
+                  <p class="text-dark m-r-5">Gender :</p>
+                  <p>{{ gender }}</p>
+                </div>
+              </div>
+              <div
+                class="
+                  d-flex
+                  justify-content-between
+                  flex-inline
+                  font-size-18
+                  align-items-center
+                "
+              >
+                <div class="flex-fill">
+                  <a href="#" class="text-gray p-r-20">
+                    <i nz-icon nzType="gitlab" theme="outline" class="icon"></i>
+                  </a>
+                  <a href="#" class="text-gray p-r-20">
+                    <i nz-icon nzType="github" theme="outline" class="icon"></i>
+                  </a>
+                  <a href="#" class="text-gray p-r-20">
+                    <i
+                      nz-icon
+                      nzType="facebook"
+                      theme="outline"
+                      class="icon"
+                    ></i>
+                  </a>
+                  <a href="#" class="text-gray p-r-20">
+                    <i nz-icon nzType="chrome" theme="outline" class="icon"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="button-edit">
+          <a
+            nz-button
+            nzType="default"
+            nzShape="circle"
+            nz-tooltip
+            nzTooltipTitle="Edit"
+            routerLink="/pages/edit-info"
+            class="list-button-edit"
+          >
+            <i nz-icon nzType="edit" class="icon-edit" theme="outline"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nz-card>
+</div>

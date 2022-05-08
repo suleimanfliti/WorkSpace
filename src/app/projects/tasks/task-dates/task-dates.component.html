@@ -1,0 +1,36 @@
+<div *ngFor="let dat of dates" class="m-t-30 m-l-30">
+  <div class="row  ">
+
+    <div class="col-md-4 ">
+      <span class="font-weight-semibold m-r-50  m-b-5 text-dark">start_at: </span>
+      <span>{{dat.start_date}}</span>
+    </div>
+    <div class="col-md-4">
+      <span class="font-weight-semibold m-r-30 m-b-5 m-l-30 text-dark justify-content-lef">end_at: </span>
+      <span>{{dat.valid_to}}</span>
+    </div>
+    <div class="col-md-4">
+      <span class="font-weight-semibold m-r-30 m-b-5 m-l-30 text-dark justify-content-lef">hours: </span>
+      <span>{{dat.valid_to}}</span>
+    </div>
+
+  </div>
+  <div class="row">
+
+    <div class="col-md-4 m-t-20">
+      <span class="font-weight-semibold m-r-10 m-b-5  text-dark">actual_start: </span>
+      <span>{{dat.estimated_date}}</span>
+    </div>
+
+    <div class="col-md-4 m-t-20">
+      <span class="font-weight-semibold m-r-10 m-b-5 m-l-30 text-dark justify-content-le">actual_end: </span>
+      <span>{{dat.actual_date}}</span>
+    </div>
+
+    <div class="col-md-4 m-t-20">
+      <span class="font-weight-semibold m-r-10 m-b-5 m-l-30 text-dark justify-content-le">actual_hours: </span>
+      <span>{{dat.actual_date}}</span>
+    </div>
+  </div>
+
+</div>

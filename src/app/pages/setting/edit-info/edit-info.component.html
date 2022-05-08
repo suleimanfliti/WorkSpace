@@ -1,0 +1,219 @@
+<div *ngIf="profile.id && user.id && !isLoaded">
+  <nz-card nzTitle="Edit Profile Image">
+    <div class="row">
+      <div class="col-md-6 col-xs-12">
+        <div class="m-l-20 m-r-20 m-b-20">
+          <h5 class="m-b-5 font-size-18">Edit Picture</h5>
+        </div>
+        <div class="d-flex align-items-center justify-content-center">
+          <div class="m-r-20">
+            <nz-avatar
+              [nzSize]="80"
+              nzIcon="user"
+              [nzSrc]="profile.picture"
+            ></nz-avatar>
+          </div>
+
+          <nz-upload
+            nzName="picture"
+            [nzShowUploadList]="false"
+            (nzChange)="profilePicture($event)"
+            nzAction="/src/assets"
+          >
+            <button nz-button nzType="primary">
+              <span>Upload</span>
+            </button>
+          </nz-upload>
+        </div>
+      </div>
+      <div class="col-md-6 col-xs-12">
+        <div class="m-l-20 m-r-20 m-b-20">
+          <h5 class="m-b-5 font-size-18">Edit Cover</h5>
+        </div>
+        <div class="d-flex align-items-center justify-content-center">
+          <div class="m-r-20">
+            <nz-avatar
+              [nzSize]="80"
+              nzIcon="user"
+              [nzSrc]="profile.cover"
+            ></nz-avatar>
+          </div>
+
+          <nz-upload
+            nzName="picture"
+            [nzShowUploadList]="false"
+            (nzChange)="coverPicture($event)"
+            nzAction="/src/assets"
+          >
+            <button nz-button nzType="primary">
+              <span>Upload</span>
+            </button>
+          </nz-upload>
+        </div>
+      </div>
+    </div>
+  </nz-card>
+  <hr class="m-v-25" />
+  <form
+    nz-form
+    [formGroup]="edit_info"
+    nzLayout="vertical"
+    class="login-form"
+    (ngSubmit)="submitForm()"
+  >
+    <nz-card nzTitle="Edit Profile Information">
+      <div class="row">
+        <div class="col-sm-6 p-r-20">
+          <nz-form-item>
+            <nz-form-label nzRequired nzFor="name">Name</nz-form-label>
+
+            <nz-form-control>
+              <input type="text" formControlName="name" nz-input />
+            </nz-form-control>
+            <nz-form-explain
+              *ngIf="
+                edit_info.get('name').touched && edit_info.get('name').errors
+              "
+              >Please Enter your Username valid!</nz-form-explain
+            >
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-label nzRequired nzFor="email">Email</nz-form-label>
+            <nz-form-control>
+              <input type="text" formControlName="email" nz-input />
+            </nz-form-control>
+            <nz-form-explain
+              *ngIf="
+                edit_info.get('email').touched && edit_info.get('email').errors
+              "
+              >Please Enter your Email valid!</nz-form-explain
+            >
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-label nzRequired nzFor="phone">Phone</nz-form-label>
+
+            <nz-form-control>
+              <input type="text" formControlName="phone" nz-input />
+            </nz-form-control>
+            <nz-form-explain
+              *ngIf="
+                edit_info.get('phone').touched && edit_info.get('phone').errors
+              "
+              >Please Enter your Phone valid!</nz-form-explain
+            >
+          </nz-form-item>
+        </div>
+
+        <div class="col-sm-6 p-l-20">
+          <!-- <nz-form-item>
+          <nz-form-label><span>Country</span></nz-form-label>
+          <nz-form-control>
+            <input type="text" nz-input [(ngModel)]="country" required />
+          </nz-form-control>
+        </nz-form-item> -->
+          <nz-form-item>
+            <nz-form-label nzRequired nzFor="city">City</nz-form-label>
+            <nz-form-control>
+              <input type="text" formControlName="city" nz-input />
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label nzRequired nzFor="weekly_hours"
+              >WeekHour</nz-form-label
+            >
+
+            <nz-form-control>
+              <input type="number" nz-input formControlName="weekly_hours" />
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+    </nz-card>
+    <nz-card nzTitle="Edit Profile Url">
+      <div class="row">
+        <div class="col-sm-6 p-r-20">
+          <nz-form-item>
+            <nz-form-label nzFor="github">gitHub</nz-form-label>
+
+            <nz-form-control>
+              <div>
+                <nz-input-group nzAddOnBefore="Http://" nzAddOnAfter=".com">
+                  <input
+                    type="text"
+                    nz-input
+                    formControlName="github"
+                    [value]="profile.gethub"
+                  />
+                </nz-input-group>
+              </div>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label nzFor="gitlab">gitLab</nz-form-label>
+            <nz-form-control>
+              <div>
+                <nz-input-group nzAddOnBefore="Http://" nzAddOnAfter=".com">
+                  <input type="text" nz-input formControlName="gitlab" />
+                </nz-input-group>
+              </div>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div class="col-sm-6 p-l-20">
+          <nz-form-item>
+            <nz-form-label nzFor="website">webSite</nz-form-label>
+
+            <nz-form-control>
+              <div>
+                <nz-input-group nzAddOnBefore="Http://" nzAddOnAfter=".com">
+                  <input type="text" nz-input formControlName="website" />
+                </nz-input-group>
+              </div>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label nzFor="social_media">social</nz-form-label>
+            <nz-form-control>
+              <div>
+                <nz-input-group nzAddOnBefore="Http://" nzAddOnAfter=".com">
+                  <input type="text" nz-input formControlName="social_media" />
+                </nz-input-group>
+              </div>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+
+      <div class="d-flex align-items-center justify-content-between p-t-30">
+        <nz-alert
+          *ngIf="error"
+          nzType="error"
+          [nzMessage]="error"
+          style="width: 100%"
+        ></nz-alert>
+        <div class="d-flex align-items-center justify-content-end">
+          <div *ngIf="isEdit">
+            <ng-template #indicatorTemplate
+              ><i nz-icon nzType="loading" class="spinner m-l-15"></i
+            ></ng-template>
+            <nz-spin nzSimple [nzIndicator]="indicatorTemplate"></nz-spin>
+          </div>
+          <button
+            class="m-l-15"
+            type="submit"
+            nz-button
+            nzType="primary"
+            [disabled]="!edit_info.valid && isEdit"
+          >
+            Save
+          </button>
+          <button nz-button nzType="primary" nzDanger class="m-l-15">
+            <a [routerLink]="['/pages', 'profile']">Back</a>
+          </button>
+        </div>
+      </div>
+    </nz-card>
+  </form>
+</div>

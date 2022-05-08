@@ -1,0 +1,86 @@
+<nz-card nzTitle="Skills List" [nzLoading]="isLoaded" [nzExtra]="extraTemplate">
+  <div class="error-box" *ngIf="error && !isLoaded">
+    <nz-alert
+      *ngIf="error && !isLoaded"
+      nzType="error"
+      [nzMessage]="'error'"
+      style="width: 100%"
+    ></nz-alert>
+  </div>
+  <ul >
+    <br />
+    <div *ngFor="let skill of skillList">
+      <div >
+        <h6 class="m-b-0">
+          {{ skill.name }}
+          <span class="font-size-13 text-gray pull-right-sm">{{
+            skill.last_use
+          }}</span>
+        </h6>
+        <p class="text-muted m-t-15">{{ skill.description }}</p>
+        <nz-progress
+          class="m-t-0"
+          [nzStrokeColor]="{ '0%': '#ee3852', '100%': '#52c5d0' }"
+          [nzPercent]="skill.level"
+          nzStatus="active"
+        >
+        </nz-progress>
+        <span class="font-size-13 text-gray pull-right-sm">{{
+          skill.status
+        }}</span>
+      </div>
+      <br /> <br />
+    </div>
+  </ul>
+  <div style="float: right">
+    <a
+      class="m-r-10 list-button-edit"
+      nz-button
+      nzType="default"
+      nzShape="circle"
+      nz-tooltip
+      nzTooltipTitle="Edit"
+      routerLink="/pages/edit-skills"
+      *ngIf="skills[0]"
+    >
+      <i nz-icon nzType="edit" theme="outline"></i>
+    </a>
+    <a
+      class="m-r-5 list-button-add"
+      nz-button
+      nzType="default"
+      nzShape="circle"
+      nz-tooltip
+      nzTooltipTitle="Add"
+      routerLink="/pages/add-skill"
+    >
+      <i nz-icon nzType="plus" theme="outline"></i>
+    </a>
+  </div>
+  <ng-template #extraTemplate>
+    <a
+      class="m-r-5 show-more"
+      nz-button
+      nzType="default"
+      nzShape="circle"
+      nz-tooltip
+      nzTooltipTitle="View More"
+      (click)="i = skills.length"
+      *ngIf="i < skills.length"
+    >
+      <i nz-icon nzType="down" nzTheme="outline"></i>
+    </a>
+    <a
+      class="m-r-5 show-more"
+      nz-button
+      nzType="default"
+      nzShape="circle"
+      nz-tooltip
+      nzTooltipTitle="Hidden"
+      (click)="i = 2"
+      *ngIf="i === skills.length"
+    >
+      <i nz-icon nzType="up" nzTheme="outline"></i>
+    </a>
+  </ng-template>
+</nz-card>

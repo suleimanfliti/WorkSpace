@@ -1,0 +1,66 @@
+<nz-card class="m-h-auto">
+    <div class="col-xl-8 col-xl-7 col-sm-6 m-auto">
+      <div class="d-flex align-items-center justify-content-center m-t-15">
+        <div class="media align-items-center m-r-15">
+          <nz-avatar
+            [nzSize]="50"
+            nzIcon="appstore"
+            class="ant-avatar-gold"
+          ></nz-avatar>
+          <div class="m-r-10">
+            <h2 class="m-b-0">8</h2>
+            <p class="m-b-0 text-muted">Projects</p>
+          </div>
+        </div>
+        <div class="media align-items-center m-r-15">
+          <nz-avatar
+            [nzSize]="50"
+            nzIcon="profile"
+            class="ant-avatar-blue"
+          ></nz-avatar>
+          <div class="m-r-10">
+            <h2 class="m-b-0">15</h2>
+            <p class="m-b-0 text-muted">Tasks</p>
+          </div>
+        </div>
+        <!-- <div class="media align-items-center">
+          <nz-avatar
+            [nzSize]="50"
+            nzIcon="solution"
+            class="ant-avatar-purple"
+          ></nz-avatar>
+          <div class="m-l-15">
+            <h2 class="m-b-0"></h2>
+            <p class="m-b-0 text-muted">Skills</p>
+          </div>
+        </div> -->
+        <div class="media align-items-center">
+          <nz-avatar
+            [nzSize]="50"
+            nzIcon="line-chart"
+            class="ant-avatar-cyan"
+          ></nz-avatar>
+          <div>
+            <h2 class="m-b-0">{{ profile.grade }}/5</h2>
+            <p class="m-b-0 text-muted">Rating</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div
+      class="
+        d-flex
+        flex-column
+        align-items-start
+        justify-content-center
+        m-t-30
+      "
+    >
+      <span class="text-dark font-weight-semibold">skills: </span>
+
+      <div class="d-flex align-items-center flex-warp">
+        <nz-tag *ngFor="let skill of skillListData">{{ skill }}</nz-tag>
+      </div>
+    </div>
+  </nz-card>

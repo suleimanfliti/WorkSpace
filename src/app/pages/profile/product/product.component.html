@@ -1,0 +1,47 @@
+<nz-card
+  nzTitle="Educations List"
+>
+  <nz-empty *ngIf="!products[0] && !error && !isLoaded"></nz-empty>
+  <div class="m-t-20" *ngIf="products[0] && !error && !isLoaded">
+    <div class="media" *ngFor="let item of products">
+        <div class="media-body m-l-20">
+          <h6 class="m-b-0">
+            {{ item.school }}
+        
+          </h6>
+          <h6 class="m-b-0">
+            {{ item.degree }}
+        
+          </h6>
+     
+        </div>
+      <!-- <nz-avatar class="shadow-sm" [nzSrc]="item.img"></nz-avatar> -->
+    </div>
+  </div>
+  <div style="float: right" class="m-t-10">
+    <a
+      class="m-r-10 list-button-edit"
+      nz-button
+      nzType="default"
+      nzShape="circle"
+      nz-tooltip
+      nzTooltipTitle="Edit"
+      routerLink="/pages/edit-edu"
+      *ngIf="products[0]"
+    >
+      <i nz-icon nzType="edit" theme="outline"></i>
+    </a>
+    <a
+      class="m-r-5 list-button-add"
+      nz-button
+      nzType="default"
+      nzShape="circle"
+      nz-tooltip
+      nzTooltipTitle="Add"
+      routerLink="/pages/add-edu"
+    >
+      <i nz-icon nzType="plus" theme="outline"></i>
+    </a>
+  </div>
+
+</nz-card>

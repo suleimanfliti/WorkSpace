@@ -1,0 +1,26 @@
+.header-project {
+  margin-bottom: 2rem;
+}
+.header-title {
+  font-size: 1.2rem;
+  color: #4cb0ba !important;
+}
+.header-project-title {
+  margin: 0 5rem;
+}
+th {
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center !important;
+}
+td {
+  font-size: 1rem !important;
+}
+.item-project-title {
+  margin-left: 1.5rem !important;
+}
+.header-project {
+}
+.center-text {
+  text-align: center;
+}

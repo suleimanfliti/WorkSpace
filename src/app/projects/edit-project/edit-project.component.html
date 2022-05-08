@@ -1,0 +1,179 @@
+<nz-card nzTitle="Edit Project Details">
+    <div class="row p-l-10" >
+      <div class="col-sm-6 p-r-20">
+        <nz-form-item>
+          <nz-form-label><span>title</span></nz-form-label>
+          <nz-form-control>
+            <input type="text" formControlName="major" nz-input />
+          </nz-form-control>
+          <!-- <nz-form-explain
+            *ngIf="
+              edit_info.get('name').touched && edit_info.get('name').errors
+            "
+            >Please Enter your Username valid!</nz-form-explain > -->
+        </nz-form-item>
+  
+    
+  
+      </div>
+      <div class="col-sm-6 p-r-20">
+        <nz-form-item>
+          <nz-form-label><span>Skills</span></nz-form-label>
+          <nz-form-control>
+            <input type="text" formControlName="school" nz-input />
+          </nz-form-control>
+          <!-- <nz-form-explain
+            *ngIf="
+              edit_info.get('name').touched && edit_info.get('name').errors
+            "
+            >Please Enter your Username valid!</nz-form-explain > -->
+        </nz-form-item>
+
+      
+      </div>
+    <hr>  
+    </div>
+    <div class="row">
+    <div class="col-sm-6 p-l-10">
+        <!-- <nz-form-item>
+        <nz-form-label><span>Country</span></nz-form-label>
+        <nz-form-control>
+          <input type="text" nz-input [(ngModel)]="country" required />
+        </nz-form-control>
+      </nz-form-item> -->
+      
+      <nz-form-item>
+        <nz-form-label><span>Start Date</span></nz-form-label>
+        <nz-form-control>
+          <nz-date-picker
+            [nzFormat]="dateFormat"
+            
+          ></nz-date-picker>
+        </nz-form-control>
+        <!-- <nz-form-explain
+          *ngIf="
+            edit_info.get('phone').touched && edit_info.get('phone').errors
+          "
+          >Please Enter your Phone valid!</nz-form-explain
+        > -->
+      </nz-form-item>
+        <nz-form-item class="m-l-5">
+          <nz-form-label><span>Valid To</span></nz-form-label>
+          <nz-form-control>
+            <nz-date-picker
+              [nzFormat]="dateFormat"
+            ></nz-date-picker>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    <div class="col-sm-6 ">
+        <!-- <nz-form-item>
+        <nz-form-label><span>Country</span></nz-form-label>
+        <nz-form-control>
+          <input type="text" nz-input [(ngModel)]="country" required />
+        </nz-form-control>
+      </nz-form-item> -->
+      
+      <nz-form-item>
+        <nz-form-label><span>Estimated Date</span></nz-form-label>
+        <nz-form-control>
+          <nz-date-picker
+            [nzFormat]="dateFormat"
+          ></nz-date-picker>
+        </nz-form-control>
+        <!-- <nz-form-explain
+          *ngIf="
+            edit_info.get('phone').touched && edit_info.get('phone').errors
+          "
+          >Please Enter your Phone valid!</nz-form-explain
+        > -->
+      </nz-form-item>
+        <nz-form-item class="m-l-20">
+          <nz-form-label><span>Actual Date</span></nz-form-label>
+          <nz-form-control>
+            <nz-date-picker
+              [nzFormat]="dateFormat"
+            ></nz-date-picker>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+
+    </div>
+    <nz-form-item>
+        <nz-form-label><span>Member</span></nz-form-label>
+        <nz-form-control>
+            <nz-select class="w-100" nzMode="multiple" nzShowSearch nzAllowClear
+                nzPlaceHolder="Select Member">
+                <nz-option class="d-flex align-items-center" nzCustomContent nzLabel="Erin Gonzales"
+                    nzValue="erin gonzales">
+                    <nz-avatar nzIcon="user" [nzSize]="25" nzSrc="assets/images/avatars/thumb-1.jpg">
+                    </nz-avatar>
+                    <span class="m-l-10">Erin Gonzales</span>
+                </nz-option>
+                <nz-option class="d-flex align-items-center" nzCustomContent nzLabel="Darryl Day"
+                    nzValue="darryl day">
+                    <nz-avatar nzIcon="user" [nzSize]="25" nzSrc="assets/images/avatars/thumb-2.jpg">
+                    </nz-avatar>
+                    <span class="m-l-10">Darryl Day</span>
+                </nz-option>
+                <nz-option class="d-flex align-items-center" nzCustomContent nzLabel="Marshall Nichols"
+                    nzValue="marshall nichols">
+                    <nz-avatar nzIcon="user" [nzSize]="25" nzSrc="assets/images/avatars/thumb-3.jpg">
+                    </nz-avatar>
+                    <span class="m-l-10">Marshall Nichols</span>
+                </nz-option>
+                <nz-option class="d-flex align-items-center" nzCustomContent nzLabel="Virgil Gonzales"
+                    nzValue="virgil gonzales">
+                    <nz-avatar nzIcon="user" [nzSize]="25" nzSrc="assets/images/avatars/thumb-4.jpg">
+                    </nz-avatar>
+                    <span class="m-l-10">Virgil Gonzales</span>
+                </nz-option>
+            </nz-select>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label><span>Description</span></nz-form-label>
+        <nz-form-control>
+          <textarea
+            rows="4"
+            nz-input
+            required
+          ></textarea>
+        </nz-form-control>
+      </nz-form-item>
+          <nz-form-item class="m-l-10">
+        <nz-form-label><span>Files</span></nz-form-label>
+        <nz-form-control>
+            <div class="clearfix">
+                <nz-upload class="upload-list-inline" nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                    nzListType="picture" >
+                    <button nz-button>
+                        <span>
+                            <i nz-icon nzType="upload"></i>
+                            Upload Files
+                        </span>
+                    </button>
+                </nz-upload>
+            </div>
+        </nz-form-control>
+    </nz-form-item>
+    <div class="add m-t-10">
+      <button  nz-button nzType="primary" >
+        <a [routerLink]="['/projects', 'project-details']">Save</a>
+      </button>
+      <button
+        nz-button
+        nzType="primary"
+        nzDanger
+        class="m-l-15"
+      >
+        <a [routerLink]="['/projects', 'project-details']">Back</a>
+      </button>
+    </div>
+  </nz-card>
+  
+  
+  
+  
+  
+  

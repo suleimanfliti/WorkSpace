@@ -1,0 +1,77 @@
+<nz-card>
+    <div class="d-flex justify-content-between align-items-center">
+      <h5 class="mb-0">Projects</h5>
+      <div>
+        <a nz-button nzSize="small" href="{{ '/projects/project-list' }}"
+          >View All</a
+        >
+      </div>
+    </div>
+    <div class="m-t-30">
+      <nz-table
+        #projectsTable
+        [nzData]="projectList"
+        [nzShowPagination]="false"
+        class="no-border-last"
+      >
+        <thead>
+          <tr>
+            <th>Project</th>
+            <th>Tasks</th>
+            <th>Status</th>
+            <th>Progress</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of projectsTable.data">
+            <td>
+              <div class="d-flex align-items-center">
+                <nz-avatar
+                  nzShape="square"
+                  nzIcon="picture"
+                  [nzSrc]="item.avatar"
+                ></nz-avatar>
+                <span class="m-l-10">{{ item.project }}</span>
+              </div>
+            </td>
+            <td>{{ item.tasks }}</td>
+            <td>
+              <nz-tag
+                class="m-b-0"
+                *ngIf="item.status == 'In Progress'"
+                [nzColor]="'blue'"
+                >{{ item.status }}</nz-tag
+              >
+              <nz-tag
+                class="m-b-0"
+                *ngIf="item.status == 'Ready'"
+                [nzColor]="'cyan'"
+                >{{ item.status }}</nz-tag
+              >
+              <nz-tag
+                class="m-b-0"
+                *ngIf="item.status == 'Behind'"
+                [nzColor]="'red'"
+                >{{ item.status }}</nz-tag
+              >
+            </td>
+            <td>
+              <div class="w-90 p-r-10">
+                <nz-progress
+                  *ngIf="item.status !== 'Behind'"
+                  [nzPercent]="item.progress"
+                  nzSize="small"
+                ></nz-progress>
+                <nz-progress
+                  *ngIf="item.status == 'Behind'"
+                  [nzPercent]="item.progress"
+                  nzSize="small"
+                  nzStatus="exception"
+                ></nz-progress>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </div>
+  </nz-card>

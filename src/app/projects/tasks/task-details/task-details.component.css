@@ -1,0 +1,36 @@
+.task {
+    background: #f8f8f8;
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-left: 5px solid #4c939a;
+
+  }
+  
+  .task h3 {
+    display: inherit;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .task p{
+     display: inline; 
+  }
+
+  .title {
+    color: #4cb0ba;
+    font-weight: 700 !important;
+  }
+  
+  .box{
+    box-shadow: 11px 14px 25px -5px rgba(53,51,51,0.73);
+    -webkit-box-shadow: 4px 6px 14px -5px rgb(53 51 51 / 73%);
+    -moz-box-shadow: 11px 14px 25px -5px rgba(53,51,51,0.73); 
+    background-color: white;
+    padding: 10px;
+}
+
+span {
+    color: #4cb0ba;
+    font-weight: 700 !important;
+  }

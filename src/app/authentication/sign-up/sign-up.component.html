@@ -1,0 +1,213 @@
+<div class="container-fluid h-100">
+  <div class="d-flex h-100 p-v-15 flex-column justify-content-between">
+    <div class="d-none d-md-flex p-h-40">
+      <a routerLink="/"
+        ><img class="logo-box" src="assets/images/logo2.png" alt="logo"
+      /></a>
+    </div>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 d-none d-md-block">
+          <img class="img-fluid" src="assets/images/signup.png" alt="" />
+        </div>
+        <div class="m-l-auto col-md-5">
+          <nz-card>
+            <h2 class="m-t-10 m-b-25 header-form">Sign Up</h2>
+
+            <form
+              nz-form
+              [formGroup]="signUpForm"
+              class="login-form"
+              nzLayout="vertical"
+              (ngSubmit)="submitForm()"
+            >
+              <nz-form-item>
+                <nz-form-label nzRequired nzFor="name">Username</nz-form-label>
+                <nz-form-control>
+                  <input
+                    type="text"
+                    nz-input
+                    formControlName="name"
+                    placeholder="ex : sliman flite"
+                    id="name"
+                  />
+                </nz-form-control>
+                <nz-form-explain
+                  *ngIf="
+                    signUpForm.get('name').touched &&
+                    signUpForm.get('name').errors
+                  "
+                  >Please Enter your username!</nz-form-explain
+                >
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label nzRequired nzFor="email">Email</nz-form-label>
+                <nz-form-control>
+                  <input
+                    type="text"
+                    nz-input
+                    formControlName="email"
+                    placeholder="ex : example@any.com"
+                    id="email"
+                  />
+                </nz-form-control>
+                <nz-form-explain
+                  *ngIf="
+                    signUpForm.get('email').touched &&
+                    signUpForm.get('email').errors
+                  "
+                  >Please Enter your Email!</nz-form-explain
+                >
+              </nz-form-item>
+              <!-- <nz-form-item>
+                <nz-form-label nzRequired nzFor="zip">Zip Code</nz-form-label>
+
+                <nz-form-control>
+                  <nz-select
+                    nzShowSearch
+                    nzServerSearch
+                    nzPlaceHolder="ex : +963"
+                    [(ngModel)]="selectedValue"
+                    [nzShowArrow]="true"
+                    [nzFilterOption]="nzFilterOption"
+                    (nzOnSearch)="search($event)"
+                    formControlName="zip"
+                    id="zip"
+                  >
+                    <nz-option
+                      *ngFor="let o of listOfOption"
+                      [nzLabel]="o.dial_code + ' ' + o.name"
+                      [nzValue]="o.dial_code"
+                    ></nz-option>
+                  </nz-select>
+                </nz-form-control>
+                <nz-form-explain
+                  *ngIf="
+                    signUpForm.get('zip').touched &&
+                    signUpForm.get('zip').errors
+                  "
+                  >Please Enter your Zip!</nz-form-explain
+                >
+              </nz-form-item> -->
+              <nz-form-item>
+                <nz-form-label nzFor="phoneNumber" nzRequired
+                  >Phone Number</nz-form-label
+                >
+                <!-- <nz-form-control
+                  [nzSm]="14"
+                  [nzXs]="24"
+                  [nzValidateStatus]="signUpForm.controls['phoneNumber']"
+                  nzErrorTip="Please input your phone number!"
+                > -->
+                <nz-form-control>
+                  <nz-input-group [nzAddOnBefore]="addOnBeforeTemplate">
+                    <ng-template #addOnBeforeTemplate>
+                      <nz-select
+                        formControlName="phoneNumberPrefix"
+                        class="phone-select"
+                      >
+                        <nz-option
+                          *ngFor="let item of listOfOption"
+                          [nzLabel]="item"
+                          [nzValue]="item"
+                        ></nz-option>
+                      </nz-select>
+                    </ng-template>
+
+                    <input formControlName="phone" id="'phone'" nz-input />
+                  </nz-input-group>
+                </nz-form-control>
+                <nz-form-explain
+                  *ngIf="
+                    signUpForm.get('phone').touched &&
+                    signUpForm.get('phone').errors
+                  "
+                  >Please Enter your Zip!</nz-form-explain
+                >
+              </nz-form-item>
+
+              <nz-form-item>
+                <nz-form-label nzRequired nzFor="password"
+                  >Password</nz-form-label
+                >
+                <nz-form-control>
+                  <input
+                    type="password"
+                    nz-input
+                    formControlName="password"
+                    placeholder="Password"
+                    id="password"
+                  />
+                </nz-form-control>
+                <nz-form-explain
+                  *ngIf="
+                    signUpForm.get('password').touched &&
+                    signUpForm.get('password').errors
+                  "
+                  >Please input your password!</nz-form-explain
+                >
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label nzFor="confirm_passowrd" nzRequired
+                  >Confirm Password</nz-form-label
+                >
+                <nz-form-control>
+                  <input
+                    nz-input
+                    type="password"
+                    formControlName="confirm_password"
+                    placeholder="Confirm Password"
+                    id="confirm_password"
+                  />
+                </nz-form-control>
+                <nz-form-explain
+                  *ngIf="
+                    signUpForm.get('confirm_password').touched &&
+                    signUpForm.get('confirm_password').errors
+                  "
+                  >Please confirm your password!</nz-form-explain
+                >
+              </nz-form-item>
+              <nz-alert nzType="error" nzMessage="Error Text"></nz-alert>
+              <nz-form-item>
+                <nz-form-control>
+                  <div
+                    class="d-flex align-items-center justify-content-between"
+                  >
+                    <!-- [disabled]="!signUpForm.valid" -->
+
+                    <div class="d-flex align-items-center justify-conten-start">
+                      <div class="m-r-10">
+                        <button
+                          nz-button
+                          class="login-form-button"
+                          [nzType]="'primary'"
+                        >
+                          Sign Up
+                        </button>
+                      </div>
+                      <ng-template #indicatorTemplate
+                        ><i nz-icon nzType="loading" class="spinner"></i
+                      ></ng-template>
+                      <nz-spin
+                        nzSimple
+                        [nzIndicator]="indicatorTemplate"
+                      ></nz-spin>
+                    </div>
+
+                    <span class="font-size-13 text-muted"
+                      >If you have account
+                      <a class="small" [routerLink]="['/authentication/login']">
+                        Login</a
+                      ></span
+                    >
+                  </div>
+                </nz-form-control>
+              </nz-form-item>
+            </form>
+          </nz-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

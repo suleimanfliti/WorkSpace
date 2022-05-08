@@ -1,0 +1,129 @@
+<nz-card nzTitle="Add Skill">
+  <form
+    nz-form
+    [formGroup]="add_skill"
+    nzLayout="vertical"
+    class="login-form"
+    (ngSubmit)="submitForm()"
+  >
+    <div class="row">
+      <div class="col-lg-6 p-r-20">
+        <nz-form-item>
+          <nz-form-label nzRequired nzFor="name">Name</nz-form-label>
+          <nz-form-control>
+            <input type="text" formControlName="name" nz-input />
+          </nz-form-control>
+          <nz-form-explain
+            *ngIf="
+              add_skill.get('name').touched && add_skill.get('name').errors
+            "
+            >Please Enter your Name valid!</nz-form-explain
+          >
+        </nz-form-item>
+        <nz-form-label nzRequired nzFor="last_use">Last Use</nz-form-label>
+        <nz-form-item>
+          <nz-form-control>
+            <nz-date-picker
+              style="width: 100%"
+              [nzFormat]="dateFormat"
+              formControlName="last_use"
+            ></nz-date-picker>
+          </nz-form-control>
+          <nz-form-explain
+            *ngIf="
+              add_skill.get('last_use').touched &&
+              add_skill.get('last_use').errors
+            "
+            >Please Enter last use valid!</nz-form-explain
+          >
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label nzFor="level">level</nz-form-label>
+          <nz-form-control>
+            <!-- <nz-slider formControlName="level"></nz-slider> -->
+            <input type="number" formControlName="level" nz-input />
+          </nz-form-control>
+          <nz-form-explain
+            *ngIf="
+              add_skill.get('level').touched && add_skill.get('level').errors
+            "
+            >Please Enter Level Between 0 to 100!</nz-form-explain
+          >
+        </nz-form-item>
+      </div>
+      <div class="col-lg-6 p-r-20">
+        <nz-form-item>
+          <nz-form-label nzRequired nzFor="description"
+            >Description</nz-form-label
+          >
+          <nz-form-control>
+            <textarea
+              rows="6"
+              nz-input
+              formControlName="description"
+            ></textarea>
+          </nz-form-control>
+          <nz-form-explain
+            *ngIf="
+              add_skill.get('description').touched &&
+              add_skill.get('description').errors
+            "
+            >Please Enter description valid!</nz-form-explain
+          >
+        </nz-form-item>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center justify-content-end">
+        <button nz-button class="m-l-15 list-button-edit">
+          <a [routerLink]="['/pages', 'profile']">Back</a>
+        </button>
+        <button
+          class="m-l-15 list-button-add"
+          type="submit"
+          nz-button
+          [disabled]="!add_skill.valid && !isChange"
+        >
+          Save
+        </button>
+        <div *ngIf="isLoaded && !error">
+          <ng-template #indicatorTemplate
+            ><i nz-icon nzType="loading" class="spinner m-l-15"></i
+          ></ng-template>
+          <nz-spin nzSimple [nzIndicator]="indicatorTemplate"></nz-spin>
+        </div>
+      </div>
+    </div>
+    <nz-alert
+      *ngIf="error && !isLoaded"
+      nzType="error"
+      [nzMessage]="'error'"
+      style="width: 100%"
+    ></nz-alert>
+  </form>
+</nz-card>
+<!-- <i nz-icon nzType="save" nzTheme="outline"></i>
+<a
+  class="m-r-10 list-button-edit"
+  nz-button
+  nzType="default"
+  nzShape="circle"
+  nz-tooltip
+  nzTooltipTitle="Edit"
+  routerLink="/pages/edit-skills"
+  *ngIf="skills[0]"
+>
+  <i nz-icon nzType="edit" theme="outline"></i>
+</a>
+<a
+  class="m-r-5 list-button-add"
+  nz-button
+  nzType="default"
+  nzShape="circle"
+  nz-tooltip
+  nzTooltipTitle="Add"
+  routerLink="/pages/add-skill"
+>
+  <i nz-icon nzType="plus" theme="outline"></i>
+</a> -->

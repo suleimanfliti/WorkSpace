@@ -1,0 +1,24 @@
+<nz-card>
+<div >
+    <h6>Files:</h6>
+            <div class="p-h-30 p-v-25">
+                <a class="file p-15" *ngFor="let item of fileList" style="min-width: 200px">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="media">
+                            <nz-avatar *ngIf="item.type == 'zip'" nzShape="square"
+                                nzIcon="file-exclamation" class="ant-avatar-cyan font-size-20">
+                            </nz-avatar>
+                            <nz-avatar *ngIf="item.type == 'doc'" nzShape="square" nzIcon="file-word"
+                                class="ant-avatar-blue font-size-20"></nz-avatar>
+                            <nz-avatar *ngIf="item.type == 'image'" nzShape="square" nzIcon="picture"
+                                class="ant-avatar-gold font-size-20"></nz-avatar>
+                            <div class="m-l-10">
+                                <h6 class="m-b-0">{{item.name}}</h6>
+                                <span class="text-muted font-size-13">{{item.size}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+</div>
+</nz-card>

@@ -1,0 +1,132 @@
+<div class="container-fluid h-100">
+  <div class="d-flex h-100 p-v-15 flex-column justify-content-between">
+    <div class="d-none d-md-flex p-h-40">
+      <a routerLink="/"
+        ><img class="logo-box" src="assets/images/logo2.png" alt=""
+      /></a>
+    </div>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-5">
+          <nz-card>
+            <h2 class="m-t-20 m-b-10 header-form">Sign In</h2>
+
+            <form
+              nz-form
+              [formGroup]="loginForm"
+              nzLayout="vertical"
+              class="login-form"
+              (ngSubmit)="submitForm()"
+            >
+              <nz-form-item>
+                <nz-form-label nzRequired nzFor="userName"
+                  >Email or Phone</nz-form-label
+                >
+                <nz-form-control>
+                  <input
+                    type="text"
+                    nz-input
+                    formControlName="emailorphone"
+                    placeholder="Email or Phone"
+                  />
+                </nz-form-control>
+                <nz-form-explain
+                  *ngIf="
+                    loginForm.get('emailorphone').touched &&
+                    loginForm.get('emailorphone').errors
+                  "
+                  >Please Enter your username or phone valid!</nz-form-explain
+                >
+              </nz-form-item>
+              <nz-form-item class="relative">
+                <nz-form-label nzRequired nzFor="password"
+                  >Password</nz-form-label
+                >
+                <a
+                  class="float-right font-size-13 text-muted"
+                  style="position: absolute; right: 0"
+                  [routerLink]="['/authentication/forget-password']"
+                  >Forget Password?</a
+                >
+                <nz-form-control>
+                  <input
+                    type="password"
+                    nz-input
+                    formControlName="password"
+                    placeholder="Password"
+                  />
+                </nz-form-control>
+                <nz-form-explain
+                  *ngIf="
+                    loginForm.get('password').touched &&
+                    loginForm.get('password').errors
+                  "
+                  >Please Enter your Password valid!</nz-form-explain
+                >
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-control>
+                  <div
+                    class="d-flex align-items-center justify-content-between"
+                  >
+                    <div class="d-flex align-items-center justify-conten-start">
+                      <div class="m-r-10">
+                        <button
+                          nz-button
+                          class="login-form-button"
+                          [nzType]="'primary'"
+                          [disabled]="!loginForm.valid"
+                        >
+                          Sign In
+                        </button>
+                      </div>
+                      <div *ngIf="isLoading">
+                        <ng-template #indicatorTemplate
+                          ><i nz-icon nzType="loading" class="spinner"></i
+                        ></ng-template>
+                        <nz-spin
+                          nzSimple
+                          [nzIndicator]="indicatorTemplate"
+                        ></nz-spin>
+                      </div>
+                    </div>
+                    <span class="font-size-13 text-muted"
+                      >Don't have an account?
+                      <a
+                        class="small"
+                        [routerLink]="['/authentication/sign-up']"
+                      >
+                        Signup</a
+                      ></span
+                    >
+                  </div>
+                </nz-form-control>
+              </nz-form-item>
+            </form>
+            <nz-alert
+              *ngIf="error"
+              nzType="error"
+              [nzMessage]="error"
+            ></nz-alert>
+            <ng-template #prefixUser><i nz-icon nzType="user"></i></ng-template>
+            <ng-template #prefixLock><i nz-icon nzType="lock"></i></ng-template>
+          </nz-card>
+        </div>
+        <div class="offset-md-1 col-md-6 d-none d-md-block">
+          <img class="img-fluid" src="assets/images/login.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-md-flex p-h-40 justify-content-between">
+      <span class="">© 2019 ThemeNate</span>
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <a class="text-dark text-link" href="">Legal</a>
+        </li>
+        <li class="list-inline-item">
+          <a class="text-dark text-link" href="">Privacy</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

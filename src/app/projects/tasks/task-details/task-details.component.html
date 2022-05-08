@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row align-items-center">
+
+    <div *ngFor="let task of taskdetails " class="task">
+      <h3 class="title">
+        {{ task.title }}
+        <span class="font-size-13 font-weight-semibold"> {{task.hours}}</span>
+        <nz-tag [nzColor]="'geekblue'" class="pull-left-sm ">{{task.skill}}</nz-tag>
+        <nz-tag [nzColor]="'blue'" class="pull-right-sm s-10">{{task.status}}</nz-tag>
+      </h3>
+
+      <hr>
+      <app-task-dates></app-task-dates>
+      <hr>
+
+      <div class="d-flex m-t-30 ">
+        <span class="text-dark  font-weight-semibold m-r-10 m-l-30">skills: </span>
+        <div class="m-l-30">
+          <nz-tag [nzColor]="'grey'" class="pull-right-sm s-10">{{task.skill}}</nz-tag>
+        </div>
+      </div>
+      <hr>
+
+      <div class="box">
+        <p>{{task.description}}</p>
+      </div>
+      <hr>
+
+      <app-task-comments></app-task-comments>
+
+    </div>
+
+  </div>
+
+</div>

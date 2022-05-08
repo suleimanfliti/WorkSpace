@@ -1,0 +1,397 @@
+<div class="page-header has-tab">
+    <h2 class="font-weight-normal">Setting</h2>
+</div>
+<nz-tabset class="page-header-tab">
+    <nz-tab nzTitle="Account">
+        <div class="container">
+            <nz-card nzTitle="Edit Basic Infomation">
+                <div class="media align-items-center" style="justify-content: space-between;">
+                    <nz-avatar [nzSize]="80" nzIcon="user" [nzSrc]="pictureUrl"></nz-avatar>
+                    <div class="m-l-20 m-r-20">
+                        <h5 class="m-b-5 font-size-18">Edit picture</h5>
+
+                    </div>
+                    <nz-upload nzName="picture" [nzShowUploadList]="false" (nzChange)="handleChange($event)">
+                        <button nz-button nzType="primary">
+                            <span>Upload</span>
+                        </button>
+                    </nz-upload>
+                    <br>
+                    <nz-avatar [nzSize]="80" nzIcon="user" [nzSrc]="coverUrl"></nz-avatar>
+                    <div class="m-l-20 m-r-20">
+                        <h5 class="m-b-5 font-size-18">Edit cover</h5>
+
+                    </div>
+                    <nz-upload nzName="cover" [nzShowUploadList]="false" (nzChange)="handleChange1($event)">
+                        <button nz-button nzType="primary">
+                            <span>Upload</span>
+                        </button>
+                    </nz-upload>
+                </div>
+                <hr class="m-v-25">
+                <div class="row">
+                    <div class="col-md-6">
+                        <nz-form-item>
+                            <nz-form-label>User Name</nz-form-label>
+                            <nz-form-control>
+                                <input nz-input placeholder="Username" value="Marshall Nichols">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                    <div class="col-md-6">
+                        <nz-form-item>
+                            <nz-form-label>Email</nz-form-label>
+                            <nz-form-control>
+                                <input nz-input placeholder="Username" type="email" value="@marshallnich">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <nz-form-item>
+                            <nz-form-label>Phone Number</nz-form-label>
+                            <nz-form-control>
+                                <input nz-input placeholder="Phone Number" value="+963-993235730">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                    <div class="col-md-4">
+                        <nz-form-item>
+                            <nz-form-label>specialize</nz-form-label>
+                            <nz-form-control>
+                                <input nz-input placeholder="" value="Frontend Developer, UI/UX Designer">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                    <div class="col-md-4">
+                        <nz-form-item>
+                            <nz-form-label>place</nz-form-label>
+                            <nz-form-control>
+                                <input nz-input placeholder="" value="Damascus ,Syria">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <nz-form-item>
+                        <nz-form-label>Bio</nz-form-label>
+                        <nz-form-control>
+                            <textarea rows="4" nz-input [(ngModel)]="inputValue4"></textarea>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+            </nz-card>
+
+            <nz-card nzTitle="Edit Password">
+                <form nz-form [formGroup]="changePWForm" (ngSubmit)="submitForm()">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <nz-form-item>
+                                <nz-form-label nzFor="oldPassword">Old Password</nz-form-label>
+                                <nz-form-control nzErrorTip="Please input your old password!">
+                                    <input formControlName="oldPassword" nz-input type="password"
+                                        placeholder="Old Password">
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div class="col-md-3">
+                            <nz-form-item>
+                                <nz-form-label nzFor="newPassword">New Password</nz-form-label>
+                                <nz-form-control nzErrorTip="Please input your New Password!">
+                                    <input formControlName="newPassword" nz-input type="password"
+                                        placeholder="New Password">
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div class="col-md-3">
+                            <nz-form-item>
+                                <nz-form-label nzFor="confirmPassword">Confirm</nz-form-label>
+                                <nz-form-control nzErrorTip="Please confirm your New Password!">
+                                    <input formControlName="confirmPassword" nz-input type="password"
+                                        placeholder="Confirm Password">
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        
+                    </div>
+                </form>
+            </nz-card>
+
+
+
+            <nz-card nzTitle="Edit Social media URLs">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <nz-form-item>
+                            <nz-form-label>githubURL</nz-form-label>
+                            <nz-form-control>
+                                <div>
+                                    <nz-input-group nzAddOnBefore="Http://" nzAddOnAfter=".com">
+                                        <input type="text" nz-input [(ngModel)]="inputValue2" />
+                                    </nz-input-group>
+                                </div>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                    <div class="col-md-6">
+                        <nz-form-item>
+                            <nz-form-label>gitlabURL</nz-form-label>
+                            <nz-form-control>
+                                <div>
+                                    <nz-input-group nzAddOnBefore="Http://" nzAddOnAfter=".com">
+                                        <input type="text" nz-input [(ngModel)]="inputValue2" />
+                                    </nz-input-group>
+                                </div>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <nz-form-item>
+                            <nz-form-label>Website</nz-form-label>
+                            <nz-form-control>
+                                <div>
+                                    <nz-input-group nzAddOnBefore="Http://" nzAddOnAfter=".com">
+                                        <input type="text" nz-input [(ngModel)]="inputValue2" />
+                                    </nz-input-group>
+                                </div>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                    <div class="col-md-6">
+                        <nz-form-item>
+                            <nz-form-label>Socialmedia</nz-form-label>
+                            <nz-form-control>
+                                <div>
+                                    <nz-input-group nzAddOnBefore="Http://" nzAddOnAfter=".com">
+                                        <input type="text" nz-input [(ngModel)]="inputValue2" />
+                                    </nz-input-group>
+                                </div>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+            </nz-card>
+
+            <nz-card nzTitle="Edit Education Details">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <nz-form-item>
+                            <nz-form-label>School</nz-form-label>
+                            <nz-form-control>
+                                <input nz-input placeholder="" value="Damascus University">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                    <div class="col-md-6">
+                        <nz-form-item>
+                            <nz-form-label>City</nz-form-label>
+                            <nz-form-control>
+                                <input nz-input placeholder="" value="Damascus">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <nz-form-item>
+                            <nz-form-label>degree</nz-form-label>
+                            <nz-form-control>
+                                <nz-input-number [(ngModel)]="demoValue" [nzMin]="1" [nzMax]="100" [nzStep]="1"
+                                    [nzFormatter]="formatterPercent" [nzParser]="parserPercent"></nz-input-number>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                    <div class="col-md-6">
+                        <nz-form-item>
+                            <nz-form-label>Date</nz-form-label>
+                            <nz-form-control>
+                                <nz-range-picker [nzFormat]="dateFormat"></nz-range-picker>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+
+                </div>
+                <button nz-button nzType="primary" ><a href="{{'/pages/add'}}">new </a></button>
+
+            </nz-card>
+
+            <nz-card nzTitle="Edit Skills Details">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <nz-form-item>
+                            <nz-form-control>
+                                <input nz-input placeholder="" value="HTML5">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                    <div class="col-md-6">
+                        <nz-form-item>
+                            <nz-form-control>
+                                <nz-input-number [(ngModel)]="demoValue" [nzMin]="1" [nzMax]="100" [nzStep]="1"
+                                    [nzFormatter]="formatterPercent" [nzParser]="parserPercent"></nz-input-number>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <nz-form-item>
+                            <nz-form-control>
+                                <input nz-input placeholder="" value="CSS3">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                    <div class="col-md-6">
+                        <nz-form-item>
+                            <nz-form-control>
+                                <nz-input-number [(ngModel)]="demoValue1" [nzMin]="1" [nzMax]="100" [nzStep]="1"
+                                    [nzFormatter]="formatterPercent" [nzParser]="parserPercent"></nz-input-number>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <nz-form-item>
+                            <nz-form-control>
+                                <input nz-input placeholder="" value="jQuery">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                    <div class="col-md-6">
+                        <nz-form-item>
+                            <nz-form-control>
+                                <nz-input-number [(ngModel)]="demoValue2" [nzMin]="1" [nzMax]="100" [nzStep]="1"
+                                    [nzFormatter]="formatterPercent" [nzParser]="parserPercent"></nz-input-number>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <nz-form-item>
+                            <nz-form-control>
+                                <input nz-input placeholder="" value="PHP">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                    <div class="col-md-6">
+                        <nz-form-item>
+                            <nz-form-control>
+                                <nz-input-number [(ngModel)]="demoValue3" [nzMin]="1" [nzMax]="100" [nzStep]="1"
+                                    [nzFormatter]="formatterPercent" [nzParser]="parserPercent"></nz-input-number>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+                <button nz-button nzType="primary" ><a href="{{'/pages/add1'}}">new </a></button>
+            </nz-card>
+           <!--
+            <nz-card nzTitle="Upload Files">
+                <nz-upload nzType="drag" [nzMultiple]="true" nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                    (nzChange)="handleChange_upload($event)">
+                    <p class="ant-upload-drag-icon">
+                        <i nz-icon nzType="inbox"></i>
+                    </p>
+                    <p class="ant-upload-text">Click or drag file to this area to upload</p>
+                    <p class="ant-upload-hint">
+                        Support for a single or bulk upload. Strictly prohibit from uploading company data or other band
+                        files
+                    </p>
+                </nz-upload>
+            </nz-card>
+             -->
+            <nz-card nzTitle="Upload Files">
+                <div class="clearfix">
+                    <nz-upload nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76" nzListType="picture"
+                        [(nzFileList)]="fileList1">
+                        <button nz-button>
+                            <i nz-icon nzType="upload"></i>
+                            Upload
+                        </button>
+                    </nz-upload>
+                </div>
+            </nz-card>
+        </div>
+    </nz-tab>
+    <nz-tab nzTitle="Network">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <nz-card nzTitle="Network Integration">
+                        <nz-list [nzDataSource]="networkList" [nzRenderItem]="network" [nzItemLayout]="'horizontal'">
+                            <ng-template #network let-item>
+                                <nz-list-item [nzActions]="[moreAction]">
+                                    <ng-template #moreAction>
+                                        <span class="m-r-10 text-gray" *ngIf="item.status">{{item.link}}</span>
+                                        <nz-switch [ngModel]="item.status" [nzCheckedChildren]="checkedTemplate"
+                                            [nzUnCheckedChildren]="unCheckedTemplate"></nz-switch>
+                                        <ng-template #checkedTemplate><i class="font-size-12" nz-icon
+                                                nzType="check"></i></ng-template>
+                                        <ng-template #unCheckedTemplate><i class="font-size-12" nz-icon
+                                                nzType="close"></i></ng-template>
+                                    </ng-template>
+                                    <nz-list-item-meta [nzTitle]="networkName" [nzAvatar]="networkIcon">
+                                        <ng-template #networkIcon>
+                                            <nz-avatar [nzIcon]="item.icon"
+                                                [ngStyle]="{'color': item.avatarColor, 'background': item.avatarBg}">
+                                            </nz-avatar>
+                                        </ng-template>
+                                        <ng-template #networkName>
+                                            <div class="font-size-15 font-weight-semibold m-t-10">{{item.name}}</div>
+                                        </ng-template>
+                                    </nz-list-item-meta>
+                                </nz-list-item>
+                            </ng-template>
+                        </nz-list>
+                    </nz-card>
+                </div>
+            </div>
+        </div>
+    </nz-tab>
+    <nz-tab nzTitle="Notification">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <nz-card nzTitle="Notification Config">
+                        <nz-list [nzDataSource]="notificationConfigList" [nzRenderItem]="notification"
+                            [nzItemLayout]="'horizontal'">
+                            <ng-template #notification let-item>
+                                <nz-list-item [nzActions]="[configStatus]">
+                                    <ng-template #configStatus>
+                                        <nz-switch [ngModel]="item.status" [nzCheckedChildren]="checkedTemplate2nd"
+                                            [nzUnCheckedChildren]="unCheckedTemplate2nd"></nz-switch>
+                                        <ng-template #checkedTemplate2nd><i class="font-size-12" nz-icon
+                                                nzType="check"></i></ng-template>
+                                        <ng-template #unCheckedTemplate2nd><i class="font-size-12" nz-icon
+                                                nzType="close"></i></ng-template>
+                                    </ng-template>
+                                    <nz-list-item-meta [nzTitle]="notificationTitle" [nzAvatar]="notificationIcon">
+                                        <ng-template #notificationIcon>
+                                            <nz-avatar [nzIcon]="item.icon" [ngClass]="item.color" class="m-t-5">
+                                            </nz-avatar>
+                                        </ng-template>
+                                        <ng-template #notificationTitle>
+                                            <h5 class="font-weight-semibold m-b-0">{{item.title}}</h5>
+                                            <p class="m-b-0 font-weight-normal">{{item.desc}}</p>
+                                        </ng-template>
+                                    </nz-list-item-meta>
+                                </nz-list-item>
+                            </ng-template>
+                        </nz-list>
+                    </nz-card>
+                </div>
+            </div>
+        </div>
+    </nz-tab>
+</nz-tabset>

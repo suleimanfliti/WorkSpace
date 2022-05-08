@@ -1,0 +1,103 @@
+<nz-card nzTitle="Files List" [nzLoading]="isLoaded" [nzExtra]="extraTemplate">
+  <nz-empty *ngIf="!files[0] && !error && !isLoaded"></nz-empty>
+  <div *ngIf="files[0] && !error && !isLoaded">
+    <div class="m-t-30">
+      <div
+        [ngClass]="{ 'm-b-25': !last }"
+        *ngFor="let item of files; let index = index"
+      >
+        <div
+          class="d-flex align-items-center justify-content-between"
+          *ngIf="index < i"
+        >
+          <div class="media align-items-center">
+            <div class="font-size-35">
+              <i
+                nz-icon
+                [nzType]="item.icon"
+                theme="twotone"
+                [twoToneColor]="item.color"
+              ></i>
+            </div>
+            <div class="m-l-15">
+              <h6 class="m-b-0">
+                <a class="text-dark">{{ item.name }}</a>
+              </h6>
+              <p class="text-muted m-b-0">{{ item.size }}</p>
+            </div>
+          </div>
+          <div>
+            <a
+              class="text-dark font-size-20"
+              nz-dropdown
+              [nzTrigger]="'click'"
+              [nzPlacement]="'bottomRight'"
+              [nzDropdownMenu]="latestUploadDropDown"
+            >
+              <i nz-icon nzType="ellipsis" theme="outline"></i>
+            </a>
+            <nz-dropdown-menu #latestUploadDropDown="nzDropdownMenu">
+              <ul nz-menu>
+                <li nz-menu-item>
+                  <i nz-icon nzType="eye" theme="outline"></i>
+                  <a (click)="view(index)"><span class="m-l-5">View</span></a>
+                </li>
+                <li nz-menu-item>
+                  <i nz-icon nzType="download" theme="outline"></i>
+                  <a (click)="download(index)"
+                    ><span class="m-l-5">Download</span></a
+                  >
+                </li>
+                <li nz-menu-item>
+                  <i nz-icon nzType="delete" theme="outline"></i>
+                  <a (click)="remove(index)"
+                    ><span class="m-l-5">Remove</span></a
+                  >
+                </li>
+              </ul>
+            </nz-dropdown-menu>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #extraTemplate>
+    <a
+      class="m-r-5 show-more"
+      nz-button
+      nzType="default"
+      nzShape="circle"
+      nz-tooltip
+      nzTooltipTitle="View More"
+      (click)="i = files.length"
+      *ngIf="i < files.length"
+    >
+      <i nz-icon nzType="down" nzTheme="outline"></i>
+    </a>
+    <a
+      class="m-r-5 show-more"
+      nz-button
+      nzType="default"
+      nzShape="circle"
+      nz-tooltip
+      nzTooltipTitle="Close"
+      (click)="i = 1"
+      *ngIf="i === files.length"
+    >
+      <i nz-icon nzType="up" nzTheme="outline"></i>
+    </a>
+  </ng-template>
+  <div class="row m-t-15">
+    <nz-upload
+      class="m-auto"
+      nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+      [nzHeaders]="{ authorization: 'authorization-text' }"
+      (nzChange)="handleChange($event)"
+    >
+      <button nz-button nzType="primary">
+        <i nz-icon nzType="upload"></i>
+        Click to Upload
+      </button>
+    </nz-upload>
+  </div>
+</nz-card>

@@ -1,0 +1,165 @@
+<div class="row pull-right-sm">
+    <a nz-button nzType="default" nzShape="circle" nz-tooltip nzTooltipTitle="Add" class="list-button-edit"
+        (click)="showNewProject(newProjectContent)">
+        <i nz-icon nzType="plus" theme="outline"></i>
+    </a>
+    <ng-template #newProjectContent>
+        <form nz-form nzLayout="vertical">
+
+            <nz-form-item>
+                <nz-form-label>title</nz-form-label>
+                <nz-form-control>
+                    <input type="text" nz-input placeholder="Please input task title">
+                </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+                <nz-form-label>Description</nz-form-label>
+                <nz-form-control>
+                    <textarea nz-input></textarea>
+                </nz-form-control>
+            </nz-form-item>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <nz-form-item>
+                        <nz-form-label>Status</nz-form-label>
+                        <nz-form-control>
+                            <input type="text" nz-input>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+                <div class="col-md-6">
+                    <nz-form-item>
+                        <nz-form-label>pre-requirement</nz-form-label>
+                        <nz-form-control>
+                            <input type="text" nz-input>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <nz-form-item>
+                        <nz-form-label>Start date</nz-form-label>
+                        <nz-form-control>
+                            <nz-date-picker class="w-100" [nzFormat]="dateFormat"></nz-date-picker>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+                <div class="col-md-6">
+                    <nz-form-item>
+                        <nz-form-label>End at</nz-form-label>
+                        <nz-form-control>
+                            <nz-date-picker class="w-100" [nzFormat]="dateFormat"></nz-date-picker>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <nz-form-item>
+                        <nz-form-label>Actual start</nz-form-label>
+                        <nz-form-control>
+                            <nz-date-picker class="w-100" [nzFormat]="dateFormat"></nz-date-picker>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+                <div class="col-md-6">
+                    <nz-form-item>
+                        <nz-form-label>Actual end</nz-form-label>
+                        <nz-form-control>
+                            <nz-date-picker class="w-100" [nzFormat]="dateFormat"></nz-date-picker>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <nz-form-item>
+                        <nz-form-label>Deadline</nz-form-label>
+                        <nz-form-control>
+                            <nz-date-picker class="w-100" [nzFormat]="dateFormat"></nz-date-picker>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+                <div class="col-md-6">
+                    <nz-form-item>
+                        <nz-form-label>Hours</nz-form-label>
+                        <nz-form-control>
+                            <nz-date-picker class="w-100" [nzFormat]="dateFormat"></nz-date-picker>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+            </div>
+
+            <nz-form-item>
+                <nz-form-label>Member</nz-form-label>
+                <nz-form-control>
+                    <nz-select class="w-100" nzMode="multiple" nzShowSearch nzAllowClear nzPlaceHolder="Select Member">
+                        <nz-option class="d-flex align-items-center" nzCustomContent nzLabel="Erin Gonzales"
+                            nzValue="erin gonzales">
+                            <nz-avatar nzIcon="user" [nzSize]="25" nzSrc="assets/images/avatars/thumb-1.jpg">
+                            </nz-avatar>
+                            <span class="m-l-10">Erin Gonzales</span>
+                        </nz-option>
+                        <nz-option class="d-flex align-items-center" nzCustomContent nzLabel="Darryl Day"
+                            nzValue="darryl day">
+                            <nz-avatar nzIcon="user" [nzSize]="25" nzSrc="assets/images/avatars/thumb-2.jpg">
+                            </nz-avatar>
+                            <span class="m-l-10">Darryl Day</span>
+                        </nz-option>
+                        <nz-option class="d-flex align-items-center" nzCustomContent nzLabel="Marshall Nichols"
+                            nzValue="marshall nichols">
+                            <nz-avatar nzIcon="user" [nzSize]="25" nzSrc="assets/images/avatars/thumb-3.jpg">
+                            </nz-avatar>
+                            <span class="m-l-10">Marshall Nichols</span>
+                        </nz-option>
+                        <nz-option class="d-flex align-items-center" nzCustomContent nzLabel="Virgil Gonzales"
+                            nzValue="virgil gonzales">
+                            <nz-avatar nzIcon="user" [nzSize]="25" nzSrc="assets/images/avatars/thumb-4.jpg">
+                            </nz-avatar>
+                            <span class="m-l-10">Virgil Gonzales</span>
+                        </nz-option>
+                    </nz-select>
+                </nz-form-control>
+            </nz-form-item>
+
+            <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+                <a nz-button nzType="minus-circle-o" class="add-button pull-right-sm" (click)="addField($event)">
+                    <i nz-icon nzType="plus"></i>
+                </a>
+
+                <nz-form-item *ngFor="let control of listOfControl; let i = index" class="lan m-b-40">
+                    <nz-form-label *ngIf="i === 0" [nzFor]="control.controlInstance" style="margin-bottom: -16px;">
+                        Skills
+                    </nz-form-label>
+
+                    <nz-form-control class=" m-t-50">
+                        <span>skill name</span>
+                        <input class="passenger-input" nz-input placeholder="skill" [attr.id]="control.id"
+                            [formControlName]="control.controlInstance" />
+                        <i nz-icon nzType="minus-circle-o" class="dynamic-delete-button"
+                            (click)="removeField(control, $event)"></i>
+                    </nz-form-control>
+
+                    <nz-form-control class=" m-t-80">
+                        <span>min-grade</span>
+                        <input class="passenger-input" nz-input placeholder="skill" [attr.id]="control.id"
+                            [formControlName]="control.controlInstance" />
+                        <i nz-icon nzType="minus-circle-o" class="dynamic-delete-button"
+                            (click)="removeField(control, $event)"></i>
+                    </nz-form-control>
+                    <br>
+                </nz-form-item>
+            </form>
+
+
+
+        </form>
+
+    </ng-template>
+</div>

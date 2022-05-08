@@ -1,0 +1,13 @@
+.picture-box {
+  margin: auto;
+}
+.border-bottom {
+  border-bottom: 1px solid #000;
+}
+.avatar {
+  margin-left: -15px;
+  border: 1px solid white;
+}
+.width-75 {
+  width: 50%;
+}
