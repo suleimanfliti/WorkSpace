@@ -9,11 +9,7 @@ import { Error2Component } from './error-2/error-2.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: '/authentication/login',
-    pathMatch: 'full',
-  },
+
   {
     path: 'login',
     component: LoginComponent,
