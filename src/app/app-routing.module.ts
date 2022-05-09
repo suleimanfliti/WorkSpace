@@ -11,7 +11,7 @@ import { AuthGuard } from './shared/guards/auth-guard.guard';
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/authentication/login',
+    redirectTo: '/dashboard/home',
     pathMatch: 'full',
   },
 
