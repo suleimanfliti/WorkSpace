@@ -6,17 +6,15 @@
       alt=""
     />
   </div>
-  <div class="img-profile-box">
-    <img class="img-profile" [src]="profile.picture" alt="profile" />
-  </div>
+
 </div>
-<div class="name-header" *ngIf="user.id">
-  <h2>{{ user.name }}</h2>
+<div class="name-header" >
+  <h2>Dana Tabbaa</h2>
 </div>
 <!-- <p class="text-opacity font-size-13">@Marshallnich</p> -->
 <!-- <p class="text-dark m-b-20">Frontend Developer, UI/UX Designer</p> -->
 <div>
-  <nz-card *ngIf="user.id && profile.id">
+  <nz-card >
     <div class="row">
       <div class="col-md-6">
         <div
@@ -36,7 +34,7 @@
           <div class="hours-box">
             <p class="m-b-5">Hour Weekly</p>
             <div class="d-flex justify-content-center">
-              <p class="hours">{{ profile.weekly_hours }}</p>
+              <p class="hours">40</p>
               <nz-avatar
                 [nzSize]="35"
                 nzIcon="hourglass"
@@ -78,7 +76,7 @@
                   ></i>
                   <p class="text-dark m-r-5">Phone :</p>
                   <p>
-                    {{ user.phone }}
+                    0993235730
                   </p>
                 </div>
               </div>
@@ -91,7 +89,7 @@
                     theme="outline"
                   ></i>
                   <p class="text-dark m-r-5">Place :</p>
-                  <p>{{ profile.city }}</p>
+                  <p>Damascus</p>
                 </div>
               </div>
 
@@ -104,7 +102,7 @@
                     nzTheme="outline"
                   ></i>
                   <p class="text-dark m-r-5">Email:</p>
-                  <p>{{ user.email }}</p>
+                  <p>danatabbaa97@gmail.com</p>
                 </div>
               </div>
 
@@ -117,7 +115,7 @@
                     nzTheme="outline"
                   ></i>
                   <p class="text-dark m-r-5">Gender :</p>
-                  <p>{{ gender }}</p>
+                  <p>female</p>
                 </div>
               </div>
               <div
